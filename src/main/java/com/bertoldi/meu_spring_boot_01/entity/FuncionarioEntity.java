@@ -7,19 +7,16 @@ public class FuncionarioEntity {
     private String email;
     private String senha;
     private double salario;
-    private int idDepartamento;
+    private Departamentoentity departamento;
 
-    public FuncionarioEntity(int idFuncionario, String nome, String email, String senha, double salario, int idDepartamento) {
+    public FuncionarioEntity(int idFuncionario, String nome, String email, String senha, double salario, Departamentoentity departamento) {
         this.idFuncionario = idFuncionario;
         this.nome = nome;
         this.email = email;
         this.senha = senha;
         this.salario = salario;
-        this.idDepartamento = idDepartamento;
+        this.departamento = departamento;
     }
- public FuncionarioEntity() {
-
-}
 
     public int getIdFuncionario() {
         return idFuncionario;
@@ -61,11 +58,11 @@ public class FuncionarioEntity {
         this.salario = salario;
     }
 
-    public int getIdDepartamento() {
-        return idDepartamento;
+    public Departamentoentity getDepartamento() {
+        return departamento;
     }
 
-    public void setIdDepartamento(int idDepartamento) {
-        this.idDepartamento = idDepartamento;
+    public void setDepartamento(Departamentoentity departamento) {
+        this.departamento = departamento;
     }
 }
