@@ -17,6 +17,9 @@ public class FuncionarioEntity {
         this.salario = salario;
         this.idDepartamento = idDepartamento;
     }
+ public FuncionarioEntity() {
+
+}
 
     public int getIdFuncionario() {
         return idFuncionario;

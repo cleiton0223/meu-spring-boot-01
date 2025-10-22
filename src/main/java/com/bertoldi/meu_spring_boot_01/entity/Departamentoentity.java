@@ -12,6 +12,10 @@ public class Departamentoentity {
         this.nmDepartamento = nm_departamento;
     }
 
+    public  Departamentoentity() {
+
+    }
+
     public int getId_departamento() {
         return idDepartamento;
     }
