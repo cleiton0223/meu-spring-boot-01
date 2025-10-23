@@ -1,10 +1,17 @@
 package com.bertoldi.meu_spring_boot_01.entity;
 
+import jakarta.persistence.*;
+
 import javax.lang.model.element.NestingKind;
-
+@Entity
+@Table (name = "departamento")
 public class Departamentoentity {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_deparamento")
     private int idDepartamento;
+
+   @Column(name = "nm_departamento")
     private String nmDepartamento;
 
     public Departamentoentity(int id_departamento, String nm_departamento) {

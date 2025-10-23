@@ -1,12 +1,36 @@
 package com.bertoldi.meu_spring_boot_01.entity;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table (name = "departamento")
 public class FuncionarioEntity {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_funcionario")
+    private int id_Funcionario;
+
+    @Column(name = "nm_departamento")
+    private double nmDepartamento;
+
+    @Column(name = "id_funcionario")
     private int idFuncionario;
+
+    @Column(name = "nome")
     private String nome;
+
+    @Column(name = "email")
     private String email;
+
+    @Column(name = "senha")
     private String senha;
+
+    @Column(name = "salario")
     private double salario;
+
+    @ManyToOne
+    @JoinColumn(name = "id_departamento", referencedColumnName = "id_departamento")
     private Departamentoentity departamento;
 
     public FuncionarioEntity(int idFuncionario, String nome, String email, String senha, double salario, Departamentoentity departamento) {
@@ -16,6 +40,9 @@ public class FuncionarioEntity {
         this.senha = senha;
         this.salario = salario;
         this.departamento = departamento;
+    }
+    public FuncionarioEntity() {
+
     }
 
     public int getIdFuncionario() {
