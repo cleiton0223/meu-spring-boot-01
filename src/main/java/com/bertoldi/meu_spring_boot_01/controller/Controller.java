@@ -17,7 +17,7 @@ public class Controller  implements CommandLineRunner {
 
         DepartamentoDto departamentoDto = new DepartamentoDto();
 
-        departamentoDto.setNmDepartamento("Financeiro");
+        departamentoDto.setNmDepartamento("Comercial");
 
         departamentoService.cadastrarDepartamento(departamentoDto);
 
