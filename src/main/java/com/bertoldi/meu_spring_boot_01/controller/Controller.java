@@ -15,12 +15,7 @@ public class Controller  implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        DepartamentoDto departamentoDto = new DepartamentoDto();
-
-        departamentoDto.setNmDepartamento("Comercial");
-
-        departamentoService.cadastrarDepartamento(departamentoDto);
-
+        System.out.println(departamentoService.listarDepartamentos());
 
     }
 }

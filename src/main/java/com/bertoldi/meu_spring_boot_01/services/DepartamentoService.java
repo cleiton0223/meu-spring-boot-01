@@ -6,6 +6,9 @@ import com.bertoldi.meu_spring_boot_01.repo.DepartamentoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class DepartamentoService {
 
@@ -25,7 +28,23 @@ public class DepartamentoService {
     }
 
     // Read
+    public List<DepartamentoDto> listarDepartamentos() {
 
+        List<DepartamentoEntity> listaDepartamentoEntity = departamentoRepo.findAll();
+
+        List<DepartamentoDto> listaDepartamentoDto = new ArrayList<>();
+
+        for (DepartamentoEntity d : listaDepartamentoEntity) {
+
+            DepartamentoDto departamentoDto = new DepartamentoDto();
+            departamentoDto.setIdDepartamento(d.getId_departamento());
+            departamentoDto.setNmDepartamento((d.getNm_departamento()));
+
+            listaDepartamentoDto.add(departamentoDto);
+        }
+        return listaDepartamentoDto;
+
+    }
     // Update
 
     // Delete
