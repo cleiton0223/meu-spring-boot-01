@@ -55,15 +55,15 @@ public class DepartamentoService {
         departamentoEntity.setNm_departamento(departamentoDto.getNmDepartamento());
 
         departamentoRepo.save(departamentoEntity);
+    }
+    // Delete
 
-
-
+    public void deletarDepartamento(int id) {
+        departamentoRepo.deleteById(id);
 
     }
 
 
 
 
-
-    // Delete
 }
