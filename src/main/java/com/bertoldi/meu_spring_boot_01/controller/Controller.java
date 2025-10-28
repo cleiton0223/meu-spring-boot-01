@@ -1,5 +1,6 @@
 package com.bertoldi.meu_spring_boot_01.controller;
 
+import com.bertoldi.meu_spring_boot_01.dto.DepartamentoDto;
 import com.bertoldi.meu_spring_boot_01.services.DepartamentoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -14,6 +15,12 @@ public class Controller  implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
+        DepartamentoDto departamentoDto = new DepartamentoDto();
+
+        departamentoDto.setNmDepartamento("Financeiro");
+
+        departamentoService.cadastrarDepartamento(departamentoDto);
+
+
     }
 }
-s

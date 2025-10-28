@@ -12,10 +12,7 @@ public class FuncionarioEntity {
     private int id_Funcionario;
 
     @Column(name = "nm_departamento")
-    private double nmDepartamento;
-
-    @Column(name = "id_funcionario")
-    private int idFuncionario;
+    private String nmDepartamento;
 
     @Column(name = "nome")
     private String nome;
@@ -31,10 +28,10 @@ public class FuncionarioEntity {
 
     @ManyToOne
     @JoinColumn(name = "id_departamento", referencedColumnName = "id_departamento")
-    private Departamentoentity departamento;
+    private DepartamentoEntity departamento;
 
-    public FuncionarioEntity(int idFuncionario, String nome, String email, String senha, double salario, Departamentoentity departamento) {
-        this.idFuncionario = idFuncionario;
+    public FuncionarioEntity(int id_Funcionario, String nome, String email, String senha, double salario, DepartamentoEntity departamento) {
+        this.id_Funcionario = id_Funcionario;
         this.nome = nome;
         this.email = email;
         this.senha = senha;
@@ -46,11 +43,11 @@ public class FuncionarioEntity {
     }
 
     public int getIdFuncionario() {
-        return idFuncionario;
+        return id_Funcionario;
     }
 
-    public void setIdFuncionario(int idFuncionario) {
-        this.idFuncionario = idFuncionario;
+    public void setIdFuncionario(int id_Funcionario) {
+        this.id_Funcionario = id_Funcionario;
     }
 
     public String getNome() {
@@ -85,11 +82,11 @@ public class FuncionarioEntity {
         this.salario = salario;
     }
 
-    public Departamentoentity getDepartamento() {
+    public DepartamentoEntity getDepartamento() {
         return departamento;
     }
 
-    public void setDepartamento(Departamentoentity departamento) {
+    public void setDepartamento(DepartamentoEntity departamento) {
         this.departamento = departamento;
     }
 }
