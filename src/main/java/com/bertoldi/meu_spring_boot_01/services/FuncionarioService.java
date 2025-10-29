@@ -32,10 +32,11 @@ public class FuncionarioService {
         funcionarioEntity.setEmail(funcionarioDto.getEmail());
         funcionarioEntity.setSenha(funcionarioDto.getSenha());
         funcionarioEntity.setSalario(funcionarioDto.getSalario());
+        funcionarioEntity.setDepartamento(departamento.get());
 
 
         funcionarioRepo.save(funcionarioEntity);
-        
+
 
 
     }
