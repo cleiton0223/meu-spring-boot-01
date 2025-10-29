@@ -23,6 +23,11 @@ public class Controller  implements CommandLineRunner {
         FuncionarioDto funcionarioDto = new FuncionarioDto();
 
         funcionarioDto.setNome("Cleiton");
-       
+        funcionarioDto.setSenha("boss123");
+        funcionarioDto.setSalario(1200);
+        funcionarioDto.setEmail("pedro2gmailcom");
+        funcionarioDto.setDepartamento(1);
+
+        funcionarioService.cadastrarFuncionario(funcionarioDto);
     }
 }
