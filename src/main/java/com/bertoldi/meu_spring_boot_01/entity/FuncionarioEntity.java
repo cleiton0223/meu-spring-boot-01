@@ -3,16 +3,13 @@ package com.bertoldi.meu_spring_boot_01.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table (name = "departamento")
+@Table(name = "funcionario")
 public class FuncionarioEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_funcionario")
-    private int id_Funcionario;
-
-    @Column(name = "nm_departamento")
-    private String nmDepartamento;
+    private int idFuncionario;
 
     @Column(name = "nome")
     private String nome;
@@ -30,24 +27,26 @@ public class FuncionarioEntity {
     @JoinColumn(name = "id_departamento", referencedColumnName = "id_departamento")
     private DepartamentoEntity departamento;
 
-    public FuncionarioEntity(int id_Funcionario, String nome, String email, String senha, double salario, DepartamentoEntity departamento) {
-        this.id_Funcionario = id_Funcionario;
+
+    public FuncionarioEntity(int idFuncionario, String nome, String email, String senha, double salario, DepartamentoEntity departamento) {
+        this.idFuncionario = idFuncionario;
         this.nome = nome;
         this.email = email;
         this.senha = senha;
         this.salario = salario;
         this.departamento = departamento;
     }
-    public FuncionarioEntity() {
+
+    public FuncionarioEntity(){
 
     }
 
     public int getIdFuncionario() {
-        return id_Funcionario;
+        return idFuncionario;
     }
 
-    public void setIdFuncionario(int id_Funcionario) {
-        this.id_Funcionario = id_Funcionario;
+    public void setIdFuncionario(int idFuncionario) {
+        this.idFuncionario = idFuncionario;
     }
 
     public String getNome() {
