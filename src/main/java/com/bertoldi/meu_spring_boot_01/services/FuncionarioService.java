@@ -54,6 +54,8 @@ public class FuncionarioService {
         for(FuncionarioEntity f : funcionarioEntityList){
 
             FuncionarioDto funcionarioDto = new FuncionarioDto();
+
+            funcionarioDto.setIdFuncionario(f.getIdFuncionario());
             funcionarioDto.setNome(f.getNome());
             funcionarioDto.setEmail(f.getEmail());
             funcionarioDto.setSalario(f.getSalario());
@@ -68,7 +70,7 @@ public class FuncionarioService {
 
     public void atualizarFuncionario(int id, FuncionarioDto funcionarioDto) {
 
-        Optional<DepartamentoEntity> departamento= departamentoRepo.findById(id);
+        Optional<DepartamentoEntity> departamento= departamentoRepo.findById(funcionarioDto.getDepartamento());
 
         FuncionarioEntity funcionarioEntity = new FuncionarioEntity();
 
