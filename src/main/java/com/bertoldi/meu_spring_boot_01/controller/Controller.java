@@ -20,15 +20,15 @@ public class Controller  implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        FuncionarioDto funcionarioDto = new FuncionarioDto();
+        FuncionarioDto funcionarioDtos = new FuncionarioDto();
 
-        funcionarioDto.setNome("Maria");
-        funcionarioDto.setEmail("mariapaula@gmail.com");
-        funcionarioDto.setSenha("123456");
-        funcionarioDto.setDepartamento(3);
-        funcionarioDto.setSalario(5000);
 
-        funcionarioService.atualizarFuncionario(2,funcionarioDto);
+
+        DepartamentoDto departamentoDtos = new DepartamentoDto();
+
+        departamentoDtos.setIdDepartamento();
+        departamentoDtos.setNmDepartamento("");
+
 
     }
 }

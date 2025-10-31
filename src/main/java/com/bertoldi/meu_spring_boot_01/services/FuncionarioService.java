@@ -6,14 +6,17 @@ import com.bertoldi.meu_spring_boot_01.entity.DepartamentoEntity;
 import com.bertoldi.meu_spring_boot_01.entity.FuncionarioEntity;
 import com.bertoldi.meu_spring_boot_01.repo.DepartamentoRepository;
 import com.bertoldi.meu_spring_boot_01.repo.FuncionarioRepository;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.annotation.Validated;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 @Service
+@Validated
 public class FuncionarioService {
 
     @Autowired
@@ -24,7 +27,7 @@ public class FuncionarioService {
     private DepartamentoRepository departamentoRepo;
     //Create
 
-    public void cadastrarFuncionario(FuncionarioDto funcionarioDto) {
+    public void cadastrarFuncionario(@Valid FuncionarioDto funcionarioDto) {
 
      Optional <DepartamentoEntity> departamento= departamentoRepo.findById(funcionarioDto.getDepartamento());
 
@@ -70,7 +73,7 @@ public class FuncionarioService {
 
     public void atualizarFuncionario(int id, FuncionarioDto funcionarioDto) {
 
-        Optional<DepartamentoEntity> departamento= departamentoRepo.findById(funcionarioDto.getDepartamento());
+        Optional<DepartamentoEntity> departamento = departamentoRepo.findById(funcionarioDto.getDepartamento());
 
         FuncionarioEntity funcionarioEntity = new FuncionarioEntity();
 

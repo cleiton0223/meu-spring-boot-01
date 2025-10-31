@@ -1,8 +1,18 @@
 package com.bertoldi.meu_spring_boot_01.dto;
 
+
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+
 public class DepartamentoDto {
 
+
+
     private int idDepartamento;
+
+    @NotBlank
+    @Size( max = 50)
     private String nmDepartamento;
 
     public DepartamentoDto(int idDepartamento, String nmDepartamento) {

@@ -1,12 +1,32 @@
 package com.bertoldi.meu_spring_boot_01.dto;
 
+import jakarta.validation.constraints.*;
+
+import java.lang.annotation.Target;
+
 public class FuncionarioDto {
 
     private int idFuncionario;
+
+
+    @NotBlank
+    @Size(max = 100)
     private String nome;
+
+    @NotBlank
+    @Email
+    @Size(max = 50)
     private String email;
+
+    @NotBlank
+    @Size(max = 50)
     private String senha;
+
+
+    @PositiveOrZero
     private double salario;
+
+
     private int departamento;
 
     public FuncionarioDto(int idFuncionario, String nome, String email, String senha, double salario, int departamento) {

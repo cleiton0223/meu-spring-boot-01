@@ -3,13 +3,17 @@ package com.bertoldi.meu_spring_boot_01.services;
 import com.bertoldi.meu_spring_boot_01.dto.DepartamentoDto;
 import com.bertoldi.meu_spring_boot_01.entity.DepartamentoEntity;
 import com.bertoldi.meu_spring_boot_01.repo.DepartamentoRepository;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.annotation.Validated;
+
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@Validated
 public class DepartamentoService {
 
     @Autowired
@@ -18,7 +22,7 @@ public class DepartamentoService {
     // CRUD
 
     // Create
-    public void cadastrarDepartamento(DepartamentoDto departamentoDto) {
+    public void cadastrarDepartamento(@Valid DepartamentoDto departamentoDto) {
         // Convertendo Dto para Entity
         DepartamentoEntity departamentoEntity = new DepartamentoEntity();
 
@@ -46,7 +50,7 @@ public class DepartamentoService {
 
     }
     // Update
-    public void atualizarDepartamento(int id, DepartamentoDto departamentoDto) {
+    public void atualizarDepartamento(int id,@Valid DepartamentoDto departamentoDto) {
 
 
         DepartamentoEntity departamentoEntity = new DepartamentoEntity();
