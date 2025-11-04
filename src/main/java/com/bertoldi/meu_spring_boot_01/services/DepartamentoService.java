@@ -52,11 +52,10 @@ public class DepartamentoService {
     // Update
     public void atualizarDepartamento(int id, DepartamentoDto departamentoDto) {
 
-         departamentoRepo.findById(id).orElseThrow(()-> new RuntimeException("Departamento não existe"));
+        DepartamentoEntity departamentoEntity =  departamentoRepo.findById(id)
+        .orElseThrow(()-> new RuntimeException("Departamento não existe"));
 
-        DepartamentoEntity departamentoEntity = new DepartamentoEntity();
 
-        departamentoEntity.setId_departamento(id);
         departamentoEntity.setNm_departamento(departamentoDto.getNmDepartamento());
 
         departamentoRepo.save(departamentoEntity);
@@ -64,11 +63,10 @@ public class DepartamentoService {
     // Delete
 
     public void deletarDepartamento(int id) {
+        DepartamentoEntity departamentoEntity =  departamentoRepo.findById(id)
+       .orElseThrow(()-> new RuntimeException("Departamento não existe"));
+
         departamentoRepo.deleteById(id);
 
     }
-
-
-
-
 }

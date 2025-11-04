@@ -22,9 +22,11 @@ public class Controller  implements CommandLineRunner {
 
         FuncionarioDto funcionarioDtos = new FuncionarioDto();
 
-
-
         DepartamentoDto departamentoDtos = new DepartamentoDto();
+
+        departamentoDtos.setNmDepartamento("sla");
+
+        departamentoService.atualizarDepartamento(811,departamentoDtos);
 
 
 
