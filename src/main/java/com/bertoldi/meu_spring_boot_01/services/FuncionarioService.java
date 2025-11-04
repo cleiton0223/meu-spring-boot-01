@@ -27,9 +27,10 @@ public class FuncionarioService {
     private DepartamentoRepository departamentoRepo;
     //Create
 
-    public void cadastrarFuncionario(@Valid FuncionarioDto funcionarioDto) {
+    public void cadastrarFuncionario(FuncionarioDto funcionarioDto) {
 
-     Optional <DepartamentoEntity> departamento= departamentoRepo.findById(funcionarioDto.getDepartamento());
+      DepartamentoEntity departamento= departamentoRepo.
+      findById(funcionarioDto.getDepartamento()).orElseThrow(() -> new RuntimeException("Departamento não existe"));
 
         FuncionarioEntity funcionarioEntity = new FuncionarioEntity();
 
@@ -37,7 +38,7 @@ public class FuncionarioService {
         funcionarioEntity.setEmail(funcionarioDto.getEmail());
         funcionarioEntity.setSenha(funcionarioDto.getSenha());
         funcionarioEntity.setSalario(funcionarioDto.getSalario());
-        funcionarioEntity.setDepartamento(departamento.get());
+
 
 
         funcionarioRepo.save(funcionarioEntity);
