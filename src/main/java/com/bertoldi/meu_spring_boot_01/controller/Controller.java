@@ -25,9 +25,7 @@ public class Controller  implements CommandLineRunner {
 
 
         DepartamentoDto departamentoDtos = new DepartamentoDto();
-
-        departamentoDtos.setIdDepartamento();
-        departamentoDtos.setNmDepartamento("");
+        
 
 
     }
