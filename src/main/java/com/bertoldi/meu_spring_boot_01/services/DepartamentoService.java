@@ -52,6 +52,8 @@ public class DepartamentoService {
     // Update
     public void atualizarDepartamento(int id, DepartamentoDto departamentoDto) {
 
+
+        //Faz a verificação se existe esse id ou não.
         DepartamentoEntity departamentoEntity =  departamentoRepo.findById(id)
         .orElseThrow(()-> new RuntimeException("Departamento não existe"));
 
@@ -63,6 +65,7 @@ public class DepartamentoService {
     // Delete
 
     public void deletarDepartamento(int id) {
+
         DepartamentoEntity departamentoEntity =  departamentoRepo.findById(id)
        .orElseThrow(()-> new RuntimeException("Departamento não existe"));
 
