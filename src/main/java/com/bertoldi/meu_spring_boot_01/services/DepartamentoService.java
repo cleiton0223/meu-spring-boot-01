@@ -22,7 +22,7 @@ public class DepartamentoService {
     // CRUD
 
     // Create
-    public void cadastrarDepartamento(@Valid DepartamentoDto departamentoDto) {
+    public void cadastrarDepartamento( DepartamentoDto departamentoDto) {
         // Convertendo Dto para Entity
         DepartamentoEntity departamentoEntity = new DepartamentoEntity();
 
@@ -50,8 +50,9 @@ public class DepartamentoService {
 
     }
     // Update
-    public void atualizarDepartamento(int id,@Valid DepartamentoDto departamentoDto) {
+    public void atualizarDepartamento(int id, DepartamentoDto departamentoDto) {
 
+         departamentoRepo.findById(id).orElseThrow(()-> new RuntimeException("Departamento não existe"));
 
         DepartamentoEntity departamentoEntity = new DepartamentoEntity();
 
