@@ -22,7 +22,7 @@ public class DepartamentoService {
     // CRUD
 
     // Create
-    public void cadastrarDepartamento( DepartamentoDto departamentoDto) {
+    public void cadastrarDepartamento(@Valid DepartamentoDto departamentoDto) {
         // Convertendo Dto para Entity
         DepartamentoEntity departamentoEntity = new DepartamentoEntity();
 
@@ -50,7 +50,7 @@ public class DepartamentoService {
 
     }
     // Update
-    public void atualizarDepartamento(int id, DepartamentoDto departamentoDto) {
+    public void atualizarDepartamento(int id,@Valid DepartamentoDto departamentoDto) {
 
 
         //Faz a verificação se existe esse id ou não.

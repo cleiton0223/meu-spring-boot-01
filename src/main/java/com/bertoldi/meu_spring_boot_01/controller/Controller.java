@@ -24,11 +24,14 @@ public class Controller  implements CommandLineRunner {
 
         DepartamentoDto departamentoDtos = new DepartamentoDto();
 
-        departamentoDtos.setNmDepartamento("sla");
 
-        departamentoService.atualizarDepartamento(811,departamentoDtos);
+        funcionarioDtos.setNome("tamasia");
+        funcionarioDtos.setEmail("Tamasiacharradinho@gmail");
+        funcionarioDtos.setSenha("charrado");
+        funcionarioDtos.setSalario(2000);
+        funcionarioDtos.setDepartamento(3);
 
-
+        funcionarioService.cadastrarFuncionario(funcionarioDtos);
 
     }
 }
