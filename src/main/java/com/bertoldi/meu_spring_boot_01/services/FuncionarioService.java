@@ -71,7 +71,7 @@ public class FuncionarioService {
     //Update
     public void atualizarFuncionario(int id,@Valid FuncionarioDto funcionarioDto) {
 
-        if(funcionarioRepo.existsByEmail(funcionarioDto.getEmail())){
+        if(funcionarioRepo.existsByEmailAndIdFuncionarioNot(funcionarioDto.getEmail(),id)){
             throw new RuntimeException("Email já cadastrado");
         }
         FuncionarioEntity funcionarioEntity =funcionarioRepo.
