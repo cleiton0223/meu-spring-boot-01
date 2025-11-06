@@ -1,7 +1,13 @@
 package com.bertoldi.meu_spring_boot_01.entity;
 
 import jakarta.persistence.*;
+import lombok.*;
 
+@Getter
+@Setter
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "funcionario")
 public class FuncionarioEntity {
@@ -27,65 +33,4 @@ public class FuncionarioEntity {
     @JoinColumn(name = "id_departamento", referencedColumnName = "id_departamento")
     private DepartamentoEntity departamento;
 
-
-    public FuncionarioEntity(int idFuncionario, String nome, String email, String senha, double salario, DepartamentoEntity departamento) {
-        this.idFuncionario = idFuncionario;
-        this.nome = nome;
-        this.email = email;
-        this.senha = senha;
-        this.salario = salario;
-        this.departamento = departamento;
-    }
-
-    public FuncionarioEntity(){
-
-    }
-
-    public int getIdFuncionario() {
-        return idFuncionario;
-    }
-
-    public void setIdFuncionario(int idFuncionario) {
-        this.idFuncionario = idFuncionario;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
-
-    public double getSalario() {
-        return salario;
-    }
-
-    public void setSalario(double salario) {
-        this.salario = salario;
-    }
-
-    public DepartamentoEntity getDepartamento() {
-        return departamento;
-    }
-
-    public void setDepartamento(DepartamentoEntity departamento) {
-        this.departamento = departamento;
-    }
 }

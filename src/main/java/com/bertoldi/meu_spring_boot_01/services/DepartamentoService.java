@@ -2,7 +2,9 @@ package com.bertoldi.meu_spring_boot_01.services;
 
 import com.bertoldi.meu_spring_boot_01.dto.DepartamentoDto;
 import com.bertoldi.meu_spring_boot_01.entity.DepartamentoEntity;
+import com.bertoldi.meu_spring_boot_01.entity.FuncionarioEntity;
 import com.bertoldi.meu_spring_boot_01.repo.DepartamentoRepository;
+import com.bertoldi.meu_spring_boot_01.repo.FuncionarioRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,8 +18,12 @@ import java.util.List;
 @Validated
 public class DepartamentoService {
 
+
+
     @Autowired
     private DepartamentoRepository departamentoRepo;
+    @Autowired
+    private FuncionarioRepository funcionarioRepository;
 
     // CRUD
 
@@ -26,7 +32,7 @@ public class DepartamentoService {
         // Convertendo Dto para Entity
         DepartamentoEntity departamentoEntity = new DepartamentoEntity();
 
-        departamentoEntity.setNm_departamento(departamentoDto.getNmDepartamento());
+        departamentoEntity.setNmDepartamento(departamentoDto.getNmDepartamento());
 
         departamentoRepo.save(departamentoEntity);
     }
@@ -41,8 +47,8 @@ public class DepartamentoService {
         for (DepartamentoEntity d : listaDepartamentoEntity) {
 
             DepartamentoDto departamentoDto = new DepartamentoDto();
-            departamentoDto.setIdDepartamento(d.getId_departamento());
-            departamentoDto.setNmDepartamento((d.getNm_departamento()));
+            departamentoDto.setIdDepartamento(d.getIdDepartamento());
+            departamentoDto.setNmDepartamento((d.getNmDepartamento()));
 
             listaDepartamentoDto.add(departamentoDto);
         }
@@ -58,7 +64,7 @@ public class DepartamentoService {
         .orElseThrow(()-> new RuntimeException("Departamento não existe"));
 
 
-        departamentoEntity.setNm_departamento(departamentoDto.getNmDepartamento());
+        departamentoEntity.setNmDepartamento(departamentoDto.getNmDepartamento());
 
         departamentoRepo.save(departamentoEntity);
     }
@@ -68,6 +74,10 @@ public class DepartamentoService {
 
         DepartamentoEntity departamentoEntity =  departamentoRepo.findById(id)
        .orElseThrow(()-> new RuntimeException("Departamento não existe"));
+
+        if(funcionarioRepository.existsByDepartamentoIdDepartamento(id)){
+            throw new RuntimeException("Não pode deletar departamento com funcionários");
+        }
 
         departamentoRepo.deleteById(id);
 
