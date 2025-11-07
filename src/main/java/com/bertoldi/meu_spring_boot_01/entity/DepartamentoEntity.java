@@ -11,8 +11,9 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 @Entity
-@Table (name = "departamento")
+@Table(name = "departamento")
 public class DepartamentoEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_departamento")
@@ -21,4 +22,7 @@ public class DepartamentoEntity {
     @Column(name = "nm_departamento")
     private String nmDepartamento;
 
+    public String getNomeDepartamento() {
+        return nmDepartamento;
+    }
 }

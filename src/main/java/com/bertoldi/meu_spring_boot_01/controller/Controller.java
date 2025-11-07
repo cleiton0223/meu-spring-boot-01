@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 public class Controller  implements CommandLineRunner {
 
     @Autowired
-    private DepartamentoService departamentoService;
+    private  DepartamentoService departamentoService;
 
     @Autowired
     private FuncionarioService funcionarioService;
@@ -20,18 +20,6 @@ public class Controller  implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        FuncionarioDto funcionarioDtos = new FuncionarioDto();
-
-        DepartamentoDto departamentoDtos = new DepartamentoDto();
-
-
-        funcionarioDtos.setDepartamento(3);
-        funcionarioDtos.setEmail("teste@gmail.com");
-        funcionarioDtos.setSenha("123456");
-        funcionarioDtos.setNome("Maria");
-        funcionarioDtos.setSalario(1500);
-
-        funcionarioService.cadastrarFuncionario(funcionarioDtos);
 
 
     }
